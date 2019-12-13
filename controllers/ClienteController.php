@@ -56,14 +56,14 @@ class clienteController {
         if(isset($_POST)){
             $email = $_POST['email'] ? $_POST['email'] : false;
             $password = $_POST['password'] ? $_POST['password'] : false;
-            
+            //Valida que no vengan datos vacios
             if($email && $password){
                 $cliente = new Cliente();
                 $cliente->setEmail($email);
                 $cliente->setPassword($password);
                 
                 $entrar = $cliente->entrar();
-                
+                //Si los datos pasados son correctos, redireccion
                 if($entrar){
                     $_SESSION['login'] = $entrar;
                     header('location:'.root);
@@ -76,11 +76,11 @@ class clienteController {
             }
         }
     }
-    
+    //Retorna la vista de los datos del cliente en sesion
     public function datos(){
         require_once'views/cliente/datos.php';
     }
-    
+    //Actualizar los datos del cliente en sesion
     public function actualizarDatos(){
         if(isset($_POST)){
             $id = $_SESSION['login']->id_cliente;
@@ -104,7 +104,7 @@ class clienteController {
         }
         header('location:'. root . 'cliente/datos');
     }
-    
+    //Cierra la sesion del cliente
     public function logout(){
         if(isset($_SESSION['login'])){
             unset($_SESSION['login']);
