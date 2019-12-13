@@ -1,7 +1,8 @@
 <?php
 
 class Utilidades {
-
+    
+    //Usada para eliminar sesiones, mayormente para sesiones con alertas
     public static function borrarSesion($nombre) {
         if (isset($_SESSION[$nombre])) {
             unset($_SESSION[$nombre]);
