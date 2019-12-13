@@ -104,7 +104,7 @@ class Cliente {
         }
         return $result;
     }
-    
+    //Usado para el momento en el que el cliente actualiza sus datos
     public function recargaSesion(){
         $sql = "SELECT * FROM cliente WHERE id_cliente={$this->id}";
         
