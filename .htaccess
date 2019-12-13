@@ -1,11 +1,12 @@
 <IfModule mod_rewrite.c>
 # Activar el rewrite
 RewriteEngine on
+#Indicar el documento 404
 ErrorDocument 404 http://localhost/Servinox/error/
 
 #Condicion para no poder cargar ni un directorio, ni un archivo en la URL
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
-
+#Primer parametro controlador, segundo metodo
 RewriteRule ^(.*)/(.*) index.php?controller=$1&action=$2
 </IfModule>
