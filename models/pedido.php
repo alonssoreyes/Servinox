@@ -123,7 +123,7 @@ class Pedido
 
     function obtenerPedidos()
     { }
-
+    //Guarda el pedido en la tabla correspondiente
     public function guardarPedido()
     {
         $result = false;
@@ -145,7 +145,7 @@ class Pedido
         }
         return $result;
     }
-
+    //Guarda el detalle en la misma transaccion 
     public function guardarDetallePedido()
     {
         $sql = "SELECT IDENT_CURRENT('pedido') AS 'pedido_id'";
